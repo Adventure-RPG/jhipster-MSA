@@ -17,7 +17,7 @@ node {
     }
 
     stage('publish docker') {
-        docker.withRegistry('localhost:5000', 'JenkinsDockerRegistry') {
+        docker.withRegistry('http://localhost:5000', 'JenkinsDockerRegistry') {
             dockerImage.push 'latest'
         }
     }

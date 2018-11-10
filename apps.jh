@@ -1,0 +1,213 @@
+application {
+  config {
+    applicationType uaa,
+    authenticationType uaa,
+    baseName adventureUAA,
+    packageName com.adventure.uaa,
+    buildTool gradle,
+    cacheProvider hazelcast,
+    prodDatabaseType postgresql,
+    enableSwaggerCodegen true,
+    searchEngine elasticsearch,
+    serverPort 9999,
+    serviceDiscoveryType eureka
+  }
+  entities *
+}
+
+application {
+  config {
+    authenticationType uaa,
+    applicationType gateway, 
+    baseName adventureGateway,
+    buildTool gradle,
+    cacheProvider hazelcast,
+    enableSwaggerCodegen true,
+    packageName com.adventure.site,
+    prodDatabaseType no,
+    searchEngine elasticsearch,
+    serverPort 8080,
+    serviceDiscoveryType eureka,
+    uaaBaseName "adventureUAA",
+    testFrameworks [protractor]
+  }
+  entities *
+}
+
+application {
+  config {
+    applicationType microservice,
+    authenticationType uaa,
+    baseName adventureCore,
+    buildTool gradle,
+    cacheProvider hazelcast,
+    enableSwaggerCodegen true,
+    packageName com.adventure.core,
+    prodDatabaseType mongodb,
+    searchEngine elasticsearch,
+    serverPort 8081,
+    serviceDiscoveryType eureka,
+    uaaBaseName "adventureUAA"
+  }
+  entities *
+}
+   
+entity AdventureAccountCharacter {
+  id Long required,
+    userId Integer required,
+    nickname String required,
+    gender Boolean required
+}
+
+entity AdventureRace {
+  id Long required,
+    name String required,
+    desc String required,
+    image ImageBlob required 
+}
+
+entity AdventureFraction {
+  id Long required,
+    name String required,
+    desc String required,
+    image ImageBlob required 
+}
+
+entity AdventureRaceOptions {
+  id Long required,
+    height Integer required min(1),
+    weight Integer required min(1)
+}
+
+entity AdventureModel {
+  id Long,
+    name String,
+    file AnyBlob
+}
+
+entity AdventureSkill {
+    id Long required,
+    name String required, 
+    position Boolean
+}
+
+entity AdventureScript {
+    id Long required,
+    name String required, 
+    file AnyBlob,
+    argumentsScript String
+}
+
+//TODO: рефаткоринг
+entity AdventureModelOptions {
+  id Long required,
+    color String
+}
+
+entity AdventureCategoryType {
+  id Long required,
+    name String required,
+    desc String
+}
+
+entity AdventureCharacteristic {
+  // Характеристики
+  // TODO: добавить min max range для отдельных рас\классов
+  strength Integer required min(1) max(50),
+    agility Integer required min(1) max(50),
+    vitality Integer required min(1) max(50),
+    luck Integer required min(1) max(50),
+    intelligence Integer required min(1) max(50),
+    wisdom Integer required min(1) max(50),
+    charisma Integer required min(1) max(50)
+}
+
+entity AdventureInventoryChar {
+  id Long required,    
+}
+
+entity AdventureItem {
+  isEquipment Boolean,
+  equipmentSlot AdventureEquipmentSlot,   
+    price Long,
+    weight Long
+}
+
+entity AdventureAttributes { 
+    // Защитные параметры
+    // TODO: написать защитный енам и логику к нему
+    defence Long required,
+    defenceArmorType AdventureDefenceArmorType required,
+    fireResistance Long required,
+    earthResistance Long required,
+    waterResistance Long required,
+    windResistance Long required
+    
+    // Атакующие параметры
+    // TODO: написать атакующий енам и логику к нему
+    activeWeaponAttackDamage AdventureActiveWeaponAttackDamage required,
+    activeWeaponAttackHit Long required,
+    activeWeaponAttackType Long required,
+    
+    // Размер
+    // TODO: Возможно лучше использовать enum для размера
+    size Long required,
+}
+
+// TODO: Как-то не очень убидительно выглядит Belt_Slot_*, так как 
+// они могут одеваться в любой из слотов, но активных будет только 5
+enum AdventureEquipmentSlot {
+  WEAPON1, WEAPON2, 
+    ARMOR, HELMET, GLOVES, BOOTS, BELT, 
+    NECKLACE, RING1, RING2,
+    CLOAK,
+    BELT_SLOT_1, BELT_SLOT_2, BELT_SLOT_3, BELT_SLOT_4, BELT_SLOT_5,
+    UNEQUIPMENT_ITEM, QUEST_ITEM
+}
+
+enum AdventureDefenceArmorType {
+  BASIC
+}
+
+enum AdventureActiveWeaponAttackDamage {
+  BLUNT
+}
+
+relationship OneToOne {
+  AdventureAccountCharacter{adventureInventoryChar} to AdventureInventoryChar
+  AdventureItem{adventureAttributes} to AdventureAttributes
+  AdventureAccountCharacter{adventureCharacteristic} to AdventureCharacteristic
+}
+
+relationship OneToMany {
+  AdventureInventoryChar{adventureItem} to AdventureItem
+  
+  AdventureAccountCharacter{adventureRace} to AdventureRace
+  AdventureSkill{adventureScript} to AdventureScript
+//  AdventureSkill{adventureSkill} to AdventureSkill
+  
+  
+  AdventureRaceOptions{adventureModelOptions} to AdventureModelOptions
+  AdventureModel{adventureCategoryType} to AdventureCategoryType
+//  AdventureCategoryType{adventureCategoryType} to AdventureCategoryType
+  AdventureRace{adventureRaceOptions} to AdventureRaceOptions
+}
+
+//relationship ManyToOne {
+//}
+
+relationship ManyToMany {
+
+    AdventureRace{adventureFraction} to AdventureFraction
+    AdventureRaceOptions{adventureModel} to AdventureModel
+    
+    AdventureAccountCharacter{adventureSkill} to AdventureSkill
+}
+
+dto * with mapstruct
+
+// Set pagination options
+paginate * with pagination  
+
+// Set service options to all
+service * with serviceImpl

@@ -1,0 +1,22 @@
+{
+    "adventureGatewayApp": {
+        "adventureInventoryChar": {
+            "home": {
+                "title": "Adventure Inventory Chars",
+                "createLabel": "Create a new Adventure Inventory Char",
+                "createOrEditLabel": "Create or edit a Adventure Inventory Char",
+                "search": "Search for Adventure Inventory Char"
+            },
+            "created": "A new Adventure Inventory Char is created with identifier {{ param }}",
+            "updated": "A Adventure Inventory Char is updated with identifier {{ param }}",
+            "deleted": "A Adventure Inventory Char is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Adventure Inventory Char {{ id }}?"
+            },
+            "detail": {
+                "title": "Adventure Inventory Char"
+            },
+            "adventureItem": "Adventure Item"
+        }
+    }
+}

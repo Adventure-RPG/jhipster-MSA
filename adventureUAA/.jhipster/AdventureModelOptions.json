@@ -1,0 +1,23 @@
+{
+    "name": "AdventureModelOptions",
+    "fields": [
+        {
+            "fieldName": "color",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181118081449",
+    "entityTableName": "adventure_model_options",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

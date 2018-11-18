@@ -1,0 +1,25 @@
+{
+    "name": "AdventureInventoryChar",
+    "fields": [],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "adventureItem",
+            "otherEntityName": "adventureItem",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20181118081452",
+    "entityTableName": "adventure_inventory_char",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": [
+        "adventureUAA",
+        "adventureGateway",
+        "adventureCore"
+    ]
+}

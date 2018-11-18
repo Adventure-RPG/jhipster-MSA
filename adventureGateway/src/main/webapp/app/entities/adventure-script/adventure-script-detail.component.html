@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adventureScript">
+            <h2><span jhiTranslate="adventureGatewayApp.adventureScript.detail.title">Adventure Script</span> {{adventureScript.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adventureGatewayApp.adventureScript.name">Name</span></dt>
+                <dd>
+                    <span>{{adventureScript.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureScript.file">File</span></dt>
+                <dd>
+                    <div *ngIf="adventureScript.file">
+                        <a (click)="openFile(adventureScript.fileContentType, adventureScript.file)" jhiTranslate="entity.action.open">open</a>
+                        {{adventureScript.fileContentType}}, {{byteSize(adventureScript.file)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureScript.argumentsScript">Arguments Script</span></dt>
+                <dd>
+                    <span>{{adventureScript.argumentsScript}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adventure-script', adventureScript.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

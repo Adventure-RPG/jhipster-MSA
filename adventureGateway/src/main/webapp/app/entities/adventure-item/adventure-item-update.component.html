@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-adventure-item-heading" jhiTranslate="adventureGatewayApp.adventureItem.home.createOrEditLabel">Create or edit a Adventure Item</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!adventureItem.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="adventureItem.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureItem.isEquipment" for="field_isEquipment">Is Equipment</label>
+                    <input type="checkbox" class="form-control" name="isEquipment" id="field_isEquipment"
+                        [(ngModel)]="adventureItem.isEquipment" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureItem.equipmentSlot" for="field_equipmentSlot">Equipment Slot</label>
+                    <select class="form-control" name="equipmentSlot" [(ngModel)]="adventureItem.equipmentSlot" id="field_equipmentSlot" >
+                        <option value="WEAPON1">{{'adventureGatewayApp.AdventureEquipmentSlot.WEAPON1' | translate}}</option>
+                        <option value="WEAPON2">{{'adventureGatewayApp.AdventureEquipmentSlot.WEAPON2' | translate}}</option>
+                        <option value="ARMOR">{{'adventureGatewayApp.AdventureEquipmentSlot.ARMOR' | translate}}</option>
+                        <option value="HELMET">{{'adventureGatewayApp.AdventureEquipmentSlot.HELMET' | translate}}</option>
+                        <option value="GLOVES">{{'adventureGatewayApp.AdventureEquipmentSlot.GLOVES' | translate}}</option>
+                        <option value="BOOTS">{{'adventureGatewayApp.AdventureEquipmentSlot.BOOTS' | translate}}</option>
+                        <option value="BELT">{{'adventureGatewayApp.AdventureEquipmentSlot.BELT' | translate}}</option>
+                        <option value="NECKLACE">{{'adventureGatewayApp.AdventureEquipmentSlot.NECKLACE' | translate}}</option>
+                        <option value="RING1">{{'adventureGatewayApp.AdventureEquipmentSlot.RING1' | translate}}</option>
+                        <option value="RING2">{{'adventureGatewayApp.AdventureEquipmentSlot.RING2' | translate}}</option>
+                        <option value="CLOAK">{{'adventureGatewayApp.AdventureEquipmentSlot.CLOAK' | translate}}</option>
+                        <option value="BELT_SLOT_1">{{'adventureGatewayApp.AdventureEquipmentSlot.BELT_SLOT_1' | translate}}</option>
+                        <option value="BELT_SLOT_2">{{'adventureGatewayApp.AdventureEquipmentSlot.BELT_SLOT_2' | translate}}</option>
+                        <option value="BELT_SLOT_3">{{'adventureGatewayApp.AdventureEquipmentSlot.BELT_SLOT_3' | translate}}</option>
+                        <option value="BELT_SLOT_4">{{'adventureGatewayApp.AdventureEquipmentSlot.BELT_SLOT_4' | translate}}</option>
+                        <option value="BELT_SLOT_5">{{'adventureGatewayApp.AdventureEquipmentSlot.BELT_SLOT_5' | translate}}</option>
+                        <option value="UNEQUIPMENT_ITEM">{{'adventureGatewayApp.AdventureEquipmentSlot.UNEQUIPMENT_ITEM' | translate}}</option>
+                        <option value="QUEST_ITEM">{{'adventureGatewayApp.AdventureEquipmentSlot.QUEST_ITEM' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureItem.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="adventureItem.price" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureItem.weight" for="field_weight">Weight</label>
+                    <input type="number" class="form-control" name="weight" id="field_weight"
+                        [(ngModel)]="adventureItem.weight" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureItem.adventureAttributes" for="field_adventureAttributes">Adventure Attributes</label>
+                    <select class="form-control" id="field_adventureAttributes" name="adventureAttributes" [(ngModel)]="adventureItem.adventureAttributesId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adventureAttributesOption.id" *ngFor="let adventureAttributesOption of adventureattributes; trackBy: trackAdventureAttributesById">{{adventureAttributesOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

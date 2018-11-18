@@ -1,0 +1,24 @@
+{
+    "adventureGatewayApp": {
+        "adventureScript": {
+            "home": {
+                "title": "AdventureScripts",
+                "createLabel": "Créer un nouveau Adventure Script",
+                "createOrEditLabel": "Créer ou éditer un Adventure Script",
+                "search": "Recherche pour Adventure Script"
+            },
+            "created": "Un nouveau Adventure Script a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Adventure Script avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Adventure Script avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Adventure Script {{ id }} ?"
+            },
+            "detail": {
+                "title": "Adventure Script"
+            },
+            "name": "Name",
+            "file": "File",
+            "argumentsScript": "Arguments Script"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AdventureAccountCharacter.
+    -->
+    <changeSet id="20181118081442-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="adventure_inventory_char_id"
+                                 baseTableName="adventure_account_character"
+                                 constraintName="fk_adventure_account_character_adventure_inventory_char_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_inventory_char"/>
+
+        <addForeignKeyConstraint baseColumnNames="adventure_characteristic_id"
+                                 baseTableName="adventure_account_character"
+                                 constraintName="fk_adventure_account_character_adventure_characteristic_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_characteristic"/>
+
+        <addForeignKeyConstraint baseColumnNames="adventure_race_id"
+                                 baseTableName="adventure_account_character"
+                                 constraintName="fk_adventure_account_character_adventure_race_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_race"/>
+
+        <addForeignKeyConstraint baseColumnNames="adventure_account_characters_id"
+                                 baseTableName="adventure_account_character_adventure_skill"
+                                 constraintName="fk_adventure_account_character_adventure_skill_adventure_account_characters_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_account_character"/>
+        <addForeignKeyConstraint baseColumnNames="adventure_skills_id"
+                                 baseTableName="adventure_account_character_adventure_skill"
+                                 constraintName="fk_adventure_account_character_adventure_skill_adventure_skills_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_skill"/>
+        
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AdventureSkill.
+    -->
+    <changeSet id="20181118081447-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="adventure_script_id"
+                                 baseTableName="adventure_skill"
+                                 constraintName="fk_adventure_skill_adventure_script_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_script"/>
+
+    </changeSet>
+</databaseChangeLog>

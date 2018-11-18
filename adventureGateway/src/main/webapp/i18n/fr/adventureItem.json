@@ -1,0 +1,26 @@
+{
+    "adventureGatewayApp": {
+        "adventureItem": {
+            "home": {
+                "title": "AdventureItems",
+                "createLabel": "Créer un nouveau Adventure Item",
+                "createOrEditLabel": "Créer ou éditer un Adventure Item",
+                "search": "Recherche pour Adventure Item"
+            },
+            "created": "Un nouveau Adventure Item a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Adventure Item avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Adventure Item avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Adventure Item {{ id }} ?"
+            },
+            "detail": {
+                "title": "Adventure Item"
+            },
+            "isEquipment": "Is Equipment",
+            "equipmentSlot": "Equipment Slot",
+            "price": "Price",
+            "weight": "Weight",
+            "adventureAttributes": "Adventure Attributes"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity AdventureRaceOptions.
+    -->
+    <changeSet id="20181118081445-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="adventure_model_options_id"
+                                 baseTableName="adventure_race_options"
+                                 constraintName="fk_adventure_race_options_adventure_model_options_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_model_options"/>
+
+        <addForeignKeyConstraint baseColumnNames="adventure_race_options_id"
+                                 baseTableName="adventure_race_options_adventure_model"
+                                 constraintName="fk_adventure_race_options_adventure_model_adventure_race_options_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_race_options"/>
+        <addForeignKeyConstraint baseColumnNames="adventure_models_id"
+                                 baseTableName="adventure_race_options_adventure_model"
+                                 constraintName="fk_adventure_race_options_adventure_model_adventure_models_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adventure_model"/>
+        
+    </changeSet>
+</databaseChangeLog>

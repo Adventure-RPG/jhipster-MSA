@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adventureRaceOptions">
+            <h2><span jhiTranslate="adventureGatewayApp.adventureRaceOptions.detail.title">Adventure Race Options</span> {{adventureRaceOptions.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adventureGatewayApp.adventureRaceOptions.height">Height</span></dt>
+                <dd>
+                    <span>{{adventureRaceOptions.height}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureRaceOptions.weight">Weight</span></dt>
+                <dd>
+                    <span>{{adventureRaceOptions.weight}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureRaceOptions.adventureModelOptions">Adventure Model Options</span></dt>
+                <dd>
+                    <div *ngIf="adventureRaceOptions.adventureModelOptionsId">
+                        <a [routerLink]="['/adventure-model-options', adventureRaceOptions.adventureModelOptionsId, 'view']">{{adventureRaceOptions.adventureModelOptionsId}}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureRaceOptions.adventureModel">Adventure Model</span></dt>
+                <dd>
+                    <span *ngFor="let adventureModel of adventureRaceOptions.adventureModels; let last = last">
+                        <a [routerLink]="['/adventure-model', adventureModel?.id, 'view' ]">{{adventureModel.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adventure-race-options', adventureRaceOptions.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

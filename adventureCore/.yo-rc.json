@@ -1,0 +1,50 @@
+{
+  "generator-jhipster": {
+    "databaseType": "mongodb",
+    "devDatabaseType": "mongodb",
+    "enableHibernateCache": false,
+    "enableSwaggerCodegen": true,
+    "enableTranslation": true,
+    "jhiPrefix": "jhi",
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "messageBroker": false,
+    "nativeLanguage": "en",
+    "packageName": "com.adventure.core",
+    "packageFolder": "com/adventure/core",
+    "prodDatabaseType": "mongodb",
+    "searchEngine": "elasticsearch",
+    "serviceDiscoveryType": "eureka",
+    "skipClient": true,
+    "testFrameworks": [],
+    "websocket": false,
+    "applicationType": "microservice",
+    "authenticationType": "uaa",
+    "baseName": "adventureCore",
+    "buildTool": "gradle",
+    "cacheProvider": "hazelcast",
+    "serverPort": "8081",
+    "uaaBaseName": "adventureUAA",
+    "jhipsterVersion": "5.7.0",
+    "skipUserManagement": true,
+    "clientPackageManager": "npm",
+    "otherModules": []
+  },
+  "entities": [
+    "AdventureAccountCharacter",
+    "AdventureRace",
+    "AdventureFraction",
+    "AdventureRaceOptions",
+    "AdventureModel",
+    "AdventureSkill",
+    "AdventureScript",
+    "AdventureModelOptions",
+    "AdventureCategoryType",
+    "AdventureCharacteristic",
+    "AdventureInventoryChar",
+    "AdventureItem",
+    "AdventureAttributes"
+  ]
+}

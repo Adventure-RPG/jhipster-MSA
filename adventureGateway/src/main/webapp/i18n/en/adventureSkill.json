@@ -1,0 +1,24 @@
+{
+    "adventureGatewayApp": {
+        "adventureSkill": {
+            "home": {
+                "title": "Adventure Skills",
+                "createLabel": "Create a new Adventure Skill",
+                "createOrEditLabel": "Create or edit a Adventure Skill",
+                "search": "Search for Adventure Skill"
+            },
+            "created": "A new Adventure Skill is created with identifier {{ param }}",
+            "updated": "A Adventure Skill is updated with identifier {{ param }}",
+            "deleted": "A Adventure Skill is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Adventure Skill {{ id }}?"
+            },
+            "detail": {
+                "title": "Adventure Skill"
+            },
+            "name": "Name",
+            "position": "Position",
+            "adventureScript": "Adventure Script"
+        }
+    }
+}

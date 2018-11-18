@@ -11,4 +11,14 @@ node {
         }
 
     }
+
+    def dockerImage
+    stage('build docker') {
+    }
+
+    stage('publish docker') {
+        docker.withRegistry('localhost:5000', 'JenkinsDockerRegistry') {
+            dockerImage.push 'latest'
+        }
+    }
 }

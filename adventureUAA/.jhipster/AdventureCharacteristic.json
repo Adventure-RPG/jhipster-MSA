@@ -80,7 +80,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20181118081451",
+    "changelogDate": "20181118091040",
     "entityTableName": "adventure_characteristic",
     "dto": "mapstruct",
     "pagination": "pagination",

@@ -6,7 +6,7 @@
     <!--
         Added the constraints for entity AdventureInventoryChar.
     -->
-    <changeSet id="20181118081452-2" author="jhipster">
+    <changeSet id="20181118091041-2" author="jhipster">
         
         <addForeignKeyConstraint baseColumnNames="adventure_item_id"
                                  baseTableName="adventure_inventory_char"

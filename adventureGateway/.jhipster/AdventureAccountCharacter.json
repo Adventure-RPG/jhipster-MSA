@@ -55,7 +55,7 @@
             "ownerSide": true
         }
     ],
-    "changelogDate": "20181118081442",
+    "changelogDate": "20181118091031",
     "entityTableName": "adventure_account_character",
     "dto": "mapstruct",
     "pagination": "pagination",

@@ -16,7 +16,7 @@
     <!--
         Added the entity AdventureRaceOptions.
     -->
-    <changeSet id="20181118081445-1" author="jhipster">
+    <changeSet id="20181118091034-1" author="jhipster">
         <createTable tableName="adventure_race_options">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

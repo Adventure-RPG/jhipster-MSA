@@ -7,7 +7,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20181118081449",
+    "changelogDate": "20181118091038",
     "entityTableName": "adventure_model_options",
     "dto": "mapstruct",
     "pagination": "pagination",

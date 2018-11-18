@@ -19,7 +19,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20181118081446",
+    "changelogDate": "20181118091035",
     "entityTableName": "adventure_model",
     "dto": "mapstruct",
     "pagination": "pagination",

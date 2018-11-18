@@ -29,7 +29,7 @@
             "otherEntityRelationshipName": "adventureItem"
         }
     ],
-    "changelogDate": "20181118081453",
+    "changelogDate": "20181118091042",
     "entityTableName": "adventure_item",
     "dto": "mapstruct",
     "pagination": "pagination",

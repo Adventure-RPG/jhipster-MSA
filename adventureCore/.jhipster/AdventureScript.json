@@ -19,7 +19,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20181118081448",
+    "changelogDate": "20181118091037",
     "entityTableName": "adventure_script",
     "dto": "mapstruct",
     "pagination": "pagination",

@@ -14,14 +14,14 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity AdventureModelOptions.
+        Added the entity AdventureInventoryChar.
     -->
-    <changeSet id="20181118081449-1" author="jhipster">
-        <createTable tableName="adventure_model_options">
+    <changeSet id="20181118091041-1" author="jhipster">
+        <createTable tableName="adventure_inventory_char">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="color" type="varchar(255)">
+            <column name="adventure_item_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

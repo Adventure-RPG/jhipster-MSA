@@ -14,7 +14,7 @@
         }
     ],
     "relationships": [],
-    "changelogDate": "20181118081450",
+    "changelogDate": "20181118091039",
     "entityTableName": "adventure_category_type",
     "dto": "mapstruct",
     "pagination": "pagination",

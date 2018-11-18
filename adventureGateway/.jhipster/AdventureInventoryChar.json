@@ -9,7 +9,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20181118081452",
+    "changelogDate": "20181118091041",
     "entityTableName": "adventure_inventory_char",
     "dto": "mapstruct",
     "pagination": "pagination",

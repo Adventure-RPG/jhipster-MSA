@@ -16,7 +16,7 @@
     <!--
         Added the entity AdventureScript.
     -->
-    <changeSet id="20181118081448-1" author="jhipster">
+    <changeSet id="20181118091037-1" author="jhipster">
         <createTable tableName="adventure_script">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>

@@ -21,7 +21,7 @@
             "otherEntityField": "id"
         }
     ],
-    "changelogDate": "20181118081447",
+    "changelogDate": "20181118091036",
     "entityTableName": "adventure_skill",
     "dto": "mapstruct",
     "pagination": "pagination",

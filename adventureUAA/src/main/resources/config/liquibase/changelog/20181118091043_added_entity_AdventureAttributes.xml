@@ -14,25 +14,50 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity AdventureFraction.
+        Added the entity AdventureAttributes.
     -->
-    <changeSet id="20181118081444-1" author="jhipster">
-        <createTable tableName="adventure_fraction">
+    <changeSet id="20181118091043-1" author="jhipster">
+        <createTable tableName="adventure_attributes">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="name" type="varchar(255)">
+            <column name="defence" type="bigint">
                 <constraints nullable="false" />
             </column>
 
-            <column name="jhi_desc" type="varchar(255)">
+            <column name="defence_armor_type" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
 
-            <column name="image" type="longblob">
+            <column name="fire_resistance" type="bigint">
                 <constraints nullable="false" />
             </column>
-            <column name="image_content_type" type="varchar(255)">
+
+            <column name="earth_resistance" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="water_resistance" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="wind_resistance" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="active_weapon_attack_damage" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="active_weapon_attack_hit" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="active_weapon_attack_type" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="jhi_size" type="bigint">
                 <constraints nullable="false" />
             </column>
 

@@ -14,10 +14,10 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity AdventureCategoryType.
+        Added the entity AdventureSkill.
     -->
-    <changeSet id="20181118081450-1" author="jhipster">
-        <createTable tableName="adventure_category_type">
+    <changeSet id="20181118091036-1" author="jhipster">
+        <createTable tableName="adventure_skill">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -25,7 +25,11 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="jhi_desc" type="varchar(255)">
+            <column name="position" type="boolean">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="adventure_script_id" type="bigint">
                 <constraints nullable="true" />
             </column>
 

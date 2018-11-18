@@ -14,10 +14,10 @@
     <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
 
     <!--
-        Added the entity AdventureSkill.
+        Added the entity AdventureFraction.
     -->
-    <changeSet id="20181118081447-1" author="jhipster">
-        <createTable tableName="adventure_skill">
+    <changeSet id="20181118091033-1" author="jhipster">
+        <createTable tableName="adventure_fraction">
             <column name="id" type="bigint" autoIncrement="${autoIncrement}">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
@@ -25,12 +25,15 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="position" type="boolean">
-                <constraints nullable="true" />
+            <column name="jhi_desc" type="varchar(255)">
+                <constraints nullable="false" />
             </column>
 
-            <column name="adventure_script_id" type="bigint">
-                <constraints nullable="true" />
+            <column name="image" type="longblob">
+                <constraints nullable="false" />
+            </column>
+            <column name="image_content_type" type="varchar(255)">
+                <constraints nullable="false" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

@@ -40,7 +40,7 @@
             "ownerSide": true
         }
     ],
-    "changelogDate": "20181118081443",
+    "changelogDate": "20181118091032",
     "entityTableName": "adventure_race",
     "dto": "mapstruct",
     "pagination": "pagination",

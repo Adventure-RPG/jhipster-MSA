@@ -45,6 +45,7 @@ application {
     databaseType mongodb,
     buildTool gradle,
     cacheProvider hazelcast,
+    enableHibernateCache false,
     enableSwaggerCodegen true,
     packageName com.adventure.core,
     searchEngine elasticsearch,

@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'build jdl'
-    }
-
-  }
+  agent none
   stages {
     stage('build apps') {
       steps {

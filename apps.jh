@@ -191,9 +191,9 @@ relationship OneToMany {
 
 relationship ManyToMany {
 
-    AdventureRace{adventureFraction} to AdventureFraction{adventureRace}
-    AdventureRaceOptions{adventureModel} to AdventureModel{adventureRaceOptions}
-    AdventureAccountCharacter{adventureSkill} to AdventureSkill{adventureAccountCharacter}
+    AdventureRace{adventureFraction(name)} to AdventureFraction{adventureRace}
+    AdventureRaceOptions{adventureModel(name)} to AdventureModel{adventureRaceOptions}
+    AdventureAccountCharacter{adventureSkill(name)} to AdventureSkill{adventureAccountCharacter}
 }
 
 dto * with mapstruct

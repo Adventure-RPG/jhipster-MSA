@@ -4,7 +4,7 @@ pipeline {
     stage('build apps') {
       agent any
       steps {
-        sh 'jhipster import-jdl apps.jh --interactive'
+        sh 'jhipster import-jdl apps.jh --interactive --from-cli=false'
       }
     }
     stage('build war') {

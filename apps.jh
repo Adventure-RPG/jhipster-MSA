@@ -57,59 +57,49 @@ application {
 }
    
 entity AdventureAccountCharacter {
-  id Long required,
-    userId Integer required,
     nickname String required,
     gender Boolean required
 }
 
 entity AdventureRace {
-  id Long required,
     name String required,
     desc String required,
     image ImageBlob required 
 }
 
 entity AdventureFraction {
-  id Long required,
     name String required,
     desc String required,
     image ImageBlob required 
 }
 
 entity AdventureRaceOptions {
-  id Long required,
     height Integer required min(1),
     weight Integer required min(1)
 }
 
 entity AdventureModel {
-  id Long,
     name String,
     file AnyBlob
 }
 
 entity AdventureSkill {
-    id Long required,
-    name String required, 
+    name String required,
     position Boolean
 }
 
 entity AdventureScript {
-    id Long required,
-    name String required, 
+    name String required,
     file AnyBlob,
     argumentsScript String
 }
 
 //TODO: рефаткоринг
 entity AdventureModelOptions {
-  id Long required,
     color String
 }
 
 entity AdventureCategoryType {
-  id Long required,
     name String required,
     desc String
 }
@@ -127,7 +117,6 @@ entity AdventureCharacteristic {
 }
 
 entity AdventureInventoryChar {
-  id Long required,    
 }
 
 entity AdventureItem {

@@ -10,9 +10,10 @@ pipeline {
     stage('build war') {
       agent any
       steps {
-        sh '''cd adventureCore
-./gradlew -Pprod bootWar jibDockerBuild
-'''
+        dir(path: 'adventureCore') {
+          sh './gradlew -Pprod bootWar jibDockerBuild'
+        }
+
       }
     }
     stage('build JenkinsFile') {

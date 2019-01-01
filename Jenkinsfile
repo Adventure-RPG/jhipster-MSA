@@ -1,29 +1,14 @@
 pipeline {
-  agent {
-    node {
-      label 'build apps'
-    }
-
-  }
+  agent any
   stages {
     stage('build apps') {
-      agent {
-        node {
-          label 'build apps step'
-        }
-
-      }
+      agent any
       steps {
         sh 'jhipster import-jdl apps.jh'
       }
     }
     stage('build war') {
-      agent {
-        node {
-          label 'build war step'
-        }
-
-      }
+      agent any
       steps {
         sh '''cd adventureCore
 ./gradlew -Pprod bootWar jibDockerBuild
@@ -31,23 +16,13 @@ pipeline {
       }
     }
     stage('build JenkinsFile') {
-      agent {
-        node {
-          label 'build jenkinsfile'
-        }
-
-      }
+      agent any
       steps {
         sh 'jhipster ci-cd --autoconfigure-jenkins=true'
       }
     }
     stage('commit new version') {
-      agent {
-        node {
-          label 'commit new version step'
-        }
-
-      }
+      agent any
       steps {
         git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', changelog: true, credentialsId: 'shaper api key')
         sh 'git push origin master --force'

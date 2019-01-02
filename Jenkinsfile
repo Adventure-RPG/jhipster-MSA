@@ -12,28 +12,64 @@ pipeline {
       }
     }
     stage('build war') {
-      steps {
-        dir(path: 'adventureCore') {
-          sh './gradlew -Pprod bootWar jibDockerBuild'
-        }
+      parallel {
+        stage('adventureCore: build war') {
+          steps {
+            dir(path: 'adventureCore') {
+              sh './gradlew -Pprod bootWar jibDockerBuild'
+            }
 
+          }
+        }
+        stage('adventureUAA: build war') {
+          steps {
+            dir(path: 'adventureUAA') {
+              sh './gradlew -Pprod bootWar jibDockerBuild'
+            }
+
+          }
+        }
       }
     }
     stage('build JenkinsFile') {
-      steps {
-        dir(path: 'adventureCore') {
-          sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-        }
+      parallel {
+        stage('AdventureCore: build JenkinsFile') {
+          steps {
+            dir(path: 'adventureCore') {
+              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+            }
 
+          }
+        }
+        stage('adventureUAA: build Jenkins') {
+          steps {
+            dir(path: 'adventureUAA') {
+              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+            }
+
+          }
+        }
       }
     }
-    stage('commit new version') {
-      steps {
-        dir(path: 'adventureCore') {
-          git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', credentialsId: 'ef610b83-b3cf-4209-b051-287bc4531d59', changelog: true)
-          sh 'git push origin master --force'
-        }
+    stage('commit') {
+      parallel {
+        stage('adventureUAA: commit') {
+          steps {
+            dir(path: 'adventureCore') {
+              git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure-core-credentials', changelog: true)
+              sh 'git push origin master --force'
+            }
 
+          }
+        }
+        stage('adventureUAA: commit') {
+          steps {
+            dir(path: 'adventureUAA') {
+              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true)
+            }
+
+          }
+        }
       }
     }
   }

@@ -53,7 +53,7 @@ pipeline {
     }
     stage('commit') {
       parallel {
-        stage('adventureUAA: commit') {
+        stage('adventureCore: commit') {
           steps {
             dir(path: 'adventureCore') {
               git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure-core-credentials', changelog: true)
@@ -65,7 +65,7 @@ pipeline {
         stage('adventureUAA: commit') {
           steps {
             dir(path: 'adventureUAA') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true)
+              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure-uaa-credentials')
             }
 
           }

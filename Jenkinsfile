@@ -25,6 +25,7 @@ pipeline {
           sh 'jhipster ci-cd --autoconfigure-jenkins=true'
         }
 
+        sh 'echo `pwd`'
       }
     }
     stage('commit new version') {

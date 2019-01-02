@@ -25,13 +25,12 @@ pipeline {
           sh 'jhipster ci-cd --autoconfigure-jenkins=true'
         }
 
-        sh 'echo `pwd`'
       }
     }
     stage('commit new version') {
       steps {
         dir(path: 'adventureCore') {
-          git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', credentialsId: 'shaper api key', changelog: true)
+          git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', credentialsId: 'ef610b83-b3cf-4209-b051-287bc4531d59', changelog: true)
           sh 'git push origin master --force'
         }
 

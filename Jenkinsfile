@@ -21,13 +21,19 @@ pipeline {
     }
     stage('build JenkinsFile') {
       steps {
-        sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+        dir(path: 'adventureCore') {
+          sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+        }
+
       }
     }
     stage('commit new version') {
       steps {
-        git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', changelog: true, credentialsId: 'shaper api key')
-        sh 'git push origin master --force'
+        dir(path: 'adventureCore') {
+          git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', credentialsId: 'shaper api key', changelog: true)
+          sh 'git push origin master --force'
+        }
+
       }
     }
   }

@@ -29,6 +29,14 @@ pipeline {
 
           }
         }
+        stage('adventureGateway: build war') {
+          steps {
+            dir(path: 'adventureGateway') {
+              sh './gradlew -Pprod bootWar jibDockerBuild'
+            }
+
+          }
+        }
       }
     }
     stage('build JenkinsFile') {
@@ -49,6 +57,14 @@ pipeline {
 
           }
         }
+        stage('adventureGateway: build Jenkins') {
+          steps {
+            dir(path: 'adventureGateway') {
+              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+            }
+
+          }
+        }
       }
     }
     stage('commit') {
@@ -63,7 +79,7 @@ pipeline {
 git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
 git add .
 git commit -am \'new build\'
-git push origin master'''
+git push origin master --force'''
             }
 
           }
@@ -75,7 +91,19 @@ git push origin master'''
 git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
 git add .
 git commit -am \'new build\'
-git push origin master'''
+git push origin master --force'''
+            }
+
+          }
+        }
+        stage('adventureGateway: commit') {
+          steps {
+            dir(path: 'adventureGateway') {
+              sh '''git init
+git remote set-url origin git@github.com:Adventure-RPG/adventure-gateway.git
+git add .
+git commit -am \'new build\'
+git push origin master --force'''
             }
 
           }

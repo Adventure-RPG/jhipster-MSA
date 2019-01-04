@@ -59,8 +59,9 @@ pipeline {
         stage('adventureCore: commit') {
           steps {
             dir(path: 'adventureCore') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure_rsa')
-              sh '''git add .
+              sh '''git init
+git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
+git add .
 git commit -am \'new build\'
 git push origin master'''
             }
@@ -70,8 +71,9 @@ git push origin master'''
         stage('adventureUAA: commit') {
           steps {
             dir(path: 'adventureUAA') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', credentialsId: 'adventure_rsa')
-              sh '''git add .
+              sh '''git init
+git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
+git add .
 git commit -am \'new build\'
 git push origin master'''
             }

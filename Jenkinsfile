@@ -57,8 +57,7 @@ pipeline {
           steps {
             dir(path: 'adventureCore') {
               git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure_rsa', changelog: true)
-              sh '''git tag -a jenkins_build -m "Hello from jenkins pipeline"
-git add .
+              sh '''git add .
 git commit -am \'new build\'
 git push origin master'''
             }
@@ -69,8 +68,7 @@ git push origin master'''
           steps {
             dir(path: 'adventureUAA') {
               git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure_rsa')
-              sh '''git tag -a jenkins_build -m "Hello from jenkins pipeline"
-git add .
+              sh '''git add .
 git commit -am \'new build\'
 git push origin master'''
             }

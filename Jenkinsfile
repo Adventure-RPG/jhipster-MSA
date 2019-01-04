@@ -57,6 +57,7 @@ pipeline {
           steps {
             dir(path: 'adventureCore') {
               git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure_rsa', changelog: true)
+              sh 'echo $GIT_SSH'
               sh 'git push origin master --force'
             }
 
@@ -66,6 +67,7 @@ pipeline {
           steps {
             dir(path: 'adventureUAA') {
               git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure_rsa')
+              sh 'echo $GIT_SSH'
               sh 'git push origin master --force'
             }
 

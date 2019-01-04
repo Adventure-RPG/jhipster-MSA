@@ -52,6 +52,9 @@ pipeline {
       }
     }
     stage('commit') {
+      options {
+        skipDefaultCheckout(true)
+      }
       parallel {
         stage('adventureCore: commit') {
           steps {

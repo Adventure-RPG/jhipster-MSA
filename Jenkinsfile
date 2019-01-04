@@ -51,31 +51,5 @@ pipeline {
         }
       }
     }
-    stage('commit') {
-      parallel {
-        stage('adventureCore: commit') {
-          steps {
-            dir(path: 'adventureCore') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure_rsa', changelog: true)
-              sh '''git add .
-git commit -am \'new build\'
-git push origin master'''
-            }
-
-          }
-        }
-        stage('adventureUAA: commit') {
-          steps {
-            dir(path: 'adventureUAA') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure_rsa')
-              sh '''git add .
-git commit -am \'new build\'
-git push origin master'''
-            }
-
-          }
-        }
-      }
-    }
   }
 }

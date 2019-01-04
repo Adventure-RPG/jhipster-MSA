@@ -56,7 +56,7 @@ pipeline {
         stage('adventureCore: commit') {
           steps {
             dir(path: 'adventureCore') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure-core-credentials', changelog: true)
+              git(url: 'git@github.com:Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'adventure_rsa', changelog: true)
               sh 'git push origin master --force'
             }
 
@@ -65,7 +65,8 @@ pipeline {
         stage('adventureUAA: commit') {
           steps {
             dir(path: 'adventureUAA') {
-              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure-uaa-credentials')
+              git(url: 'git@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure_rsa')
+              sh 'git push origin master --force'
             }
 
           }

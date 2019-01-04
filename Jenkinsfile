@@ -56,7 +56,7 @@ pipeline {
         stage('adventureCore: commit') {
           steps {
             dir(path: 'adventureCore') {
-              git(url: 'https://shaper2111@github.com/Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'shaper_access_key', changelog: true)
+              git(url: 'https://shaper2111:df9572fc005e6335dac6119a8b12b9bdeedc63a3@github.com/Adventure-RPG/adventure-core.git', branch: 'master', credentialsId: 'shaper_access_key', changelog: true)
               sh 'echo $GIT_SSH'
               sh 'git push origin master --force'
             }
@@ -66,7 +66,7 @@ pipeline {
         stage('adventureUAA: commit') {
           steps {
             dir(path: 'adventureUAA') {
-              git(url: 'https://shaper2111@github.com/Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'shaper_access_key')
+              git(url: 'https://shaper2111:df9572fc005e6335dac6119a8b12b9bdeedc63a3@github.com/Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'shaper_access_key')
               sh 'echo $GIT_SSH'
               sh 'git push origin master --force'
             }

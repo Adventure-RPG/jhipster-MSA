@@ -78,7 +78,7 @@ pipeline {
               sh '''git init
 git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
 git add .
-git commit -am \'new build\'
+git commit --allow-empty -am \'new build\'
 git push origin master --force'''
             }
 
@@ -90,7 +90,7 @@ git push origin master --force'''
               sh '''git init
 git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
 git add .
-git commit -am \'new build\'
+git commit --allow-empty -am \'new build\'
 git push origin master --force'''
             }
 
@@ -102,7 +102,7 @@ git push origin master --force'''
               sh '''git init
 git remote set-url origin git@github.com:Adventure-RPG/adventure-gateway.git
 git add .
-git commit -am \'new build\'
+git commit --allow-empty -am \'new build\'
 git push origin master --force'''
             }
 

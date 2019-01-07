@@ -67,51 +67,5 @@ pipeline {
         }
       }
     }
-    stage('commit') {
-      options {
-        skipDefaultCheckout(true)
-      }
-      parallel {
-        stage('adventureCore: commit') {
-          steps {
-            dir(path: 'adventureCore') {
-              sh '''rm -rf .git/
-git init
-git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
-git add .
-git commit --allow-empty -am \'new build\'
-git push origin master --force'''
-            }
-
-          }
-        }
-        stage('adventureUAA: commit') {
-          steps {
-            dir(path: 'adventureUAA') {
-              sh '''rm -rf .git/
-git init
-git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
-git add .
-git commit --allow-empty -am \'new build\'
-git push origin master --force'''
-            }
-
-          }
-        }
-        stage('adventureGateway: commit') {
-          steps {
-            dir(path: 'adventureGateway') {
-              sh '''rm -rf .git/
-git init
-git remote set-url origin git@github.com:Adventure-RPG/adventure-gateway.git
-git add .
-git commit --allow-empty -am \'new build\'
-git push origin master --force'''
-            }
-
-          }
-        }
-      }
-    }
   }
 }

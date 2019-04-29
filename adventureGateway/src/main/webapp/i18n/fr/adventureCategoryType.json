@@ -1,0 +1,23 @@
+{
+    "adventureGatewayApp": {
+        "adventureCategoryType": {
+            "home": {
+                "title": "AdventureCategoryTypes",
+                "createLabel": "Créer un nouveau Adventure Category Type",
+                "createOrEditLabel": "Créer ou éditer un Adventure Category Type",
+                "search": "Recherche pour Adventure Category Type"
+            },
+            "created": "Un nouveau Adventure Category Type a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Adventure Category Type avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Adventure Category Type avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Adventure Category Type {{ id }} ?"
+            },
+            "detail": {
+                "title": "Adventure Category Type"
+            },
+            "name": "Name",
+            "desc": "Desc"
+        }
+    }
+}

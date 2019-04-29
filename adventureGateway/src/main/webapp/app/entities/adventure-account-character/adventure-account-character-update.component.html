@@ -1,0 +1,73 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-adventure-account-character-heading" jhiTranslate="adventureGatewayApp.adventureAccountCharacter.home.createOrEditLabel">Create or edit a Adventure Account Character</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!adventureAccountCharacter.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="adventureAccountCharacter.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureAccountCharacter.nickname" for="field_nickname">Nickname</label>
+                    <input type="text" class="form-control" name="nickname" id="field_nickname"
+                        [(ngModel)]="adventureAccountCharacter.nickname" required/>
+                    <div [hidden]="!(editForm.controls.nickname?.dirty && editForm.controls.nickname?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nickname?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureAccountCharacter.gender" for="field_gender">Gender</label>
+                    <input type="checkbox" class="form-control" name="gender" id="field_gender"
+                        [(ngModel)]="adventureAccountCharacter.gender" />
+                    <div [hidden]="!(editForm.controls.gender?.dirty && editForm.controls.gender?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.gender?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureAccountCharacter.adventureInventoryChar" for="field_adventureInventoryChar">Adventure Inventory Char</label>
+                    <select class="form-control" id="field_adventureInventoryChar" name="adventureInventoryChar" [(ngModel)]="adventureAccountCharacter.adventureInventoryCharId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adventureInventoryCharOption.id" *ngFor="let adventureInventoryCharOption of adventureinventorychars; trackBy: trackAdventureInventoryCharById">{{adventureInventoryCharOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureAccountCharacter.adventureCharacteristic" for="field_adventureCharacteristic">Adventure Characteristic</label>
+                    <select class="form-control" id="field_adventureCharacteristic" name="adventureCharacteristic" [(ngModel)]="adventureAccountCharacter.adventureCharacteristicId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adventureCharacteristicOption.id" *ngFor="let adventureCharacteristicOption of adventurecharacteristics; trackBy: trackAdventureCharacteristicById">{{adventureCharacteristicOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureAccountCharacter.adventureRace" for="field_adventureRace">Adventure Race</label>
+                    <select class="form-control" id="field_adventureRace" name="adventureRace" [(ngModel)]="adventureAccountCharacter.adventureRaceId" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="adventureRaceOption.id" *ngFor="let adventureRaceOption of adventureraces; trackBy: trackAdventureRaceById">{{adventureRaceOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="adventureGatewayApp.adventureAccountCharacter.adventureSkill" for="field_adventureSkill">Adventure Skill</label>
+                    <select class="form-control" id="field_adventureSkill" multiple name="adventureSkill" [(ngModel)]="adventureAccountCharacter.adventureSkills">
+                        <option [ngValue]="getSelected(adventureAccountCharacter.adventureSkills, adventureSkillOption)" *ngFor="let adventureSkillOption of adventureskills; trackBy: trackAdventureSkillById">{{adventureSkillOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

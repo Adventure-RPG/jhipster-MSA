@@ -1,0 +1,28 @@
+{
+    "adventureGatewayApp": {
+        "adventureCharacteristic": {
+            "home": {
+                "title": "AdventureCharacteristics",
+                "createLabel": "Créer un nouveau Adventure Characteristic",
+                "createOrEditLabel": "Créer ou éditer un Adventure Characteristic",
+                "search": "Recherche pour Adventure Characteristic"
+            },
+            "created": "Un nouveau Adventure Characteristic a été créé avec l'identifiant {{ param }}",
+            "updated": "Le Adventure Characteristic avec l'identifiant {{ param }} a été mis à jour",
+            "deleted": "Le Adventure Characteristic avec l'identifiant {{ param }} a été supprimé",
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le Adventure Characteristic {{ id }} ?"
+            },
+            "detail": {
+                "title": "Adventure Characteristic"
+            },
+            "strength": "Strength",
+            "agility": "Agility",
+            "vitality": "Vitality",
+            "luck": "Luck",
+            "intelligence": "Intelligence",
+            "wisdom": "Wisdom",
+            "charisma": "Charisma"
+        }
+    }
+}

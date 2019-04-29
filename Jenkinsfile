@@ -7,6 +7,12 @@ pipeline {
   }
   stages {
     stage('build apps') {
+      agent {
+        node {
+          label 'master'
+        }
+
+      }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }
@@ -14,6 +20,11 @@ pipeline {
     stage('build war') {
       parallel {
         stage('adventureCore: build war') {
+          agent {
+            node {
+              label 'master'
+            }
+          }
           options {
             skipDefaultCheckout(true)
           }
@@ -25,6 +36,11 @@ pipeline {
           }
         }
         stage('adventureUAA: build war') {
+          agent {
+            node {
+              label 'master'
+            }
+          }
           options {
             skipDefaultCheckout(true)
           }
@@ -36,6 +52,11 @@ pipeline {
           }
         }
         stage('adventureGateway: build war') {
+          agent {
+            node {
+              label 'master'
+            }
+          }
           options {
             skipDefaultCheckout(true)
           }
@@ -51,6 +72,12 @@ pipeline {
     stage('build JenkinsFile') {
       parallel {
         stage('AdventureCore: build JenkinsFile') {
+          agent {
+            node {
+              label 'master'
+            }
+
+          }
           options {
             skipDefaultCheckout(true)
           }
@@ -58,11 +85,15 @@ pipeline {
             dir(path: 'adventureCore') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
-
-            sh 'sh \'scp -r AdventureCore web@web.iamborsch.ru:projects/\''
           }
         }
         stage('adventureUAA: build Jenkins') {
+          agent {
+            node {
+              label 'master'
+            }
+
+          }
           options {
             skipDefaultCheckout(true)
           }
@@ -74,6 +105,12 @@ pipeline {
           }
         }
         stage('adventureGateway: build Jenkins') {
+          agent {
+            node {
+              label 'master'
+            }
+
+          }
           options {
             skipDefaultCheckout(true)
           }

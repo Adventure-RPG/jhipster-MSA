@@ -1,17 +1,13 @@
 pipeline {
-  agent {
-    node {
-      label 'master'
-    }
-
+  agent none
+  options {
+      skipDefaultCheckout true
   }
   stages {
     stage('build apps') {
-      agent {
-        node {
-          label 'master'
-        }
-
+      agent none
+      options {
+          skipDefaultCheckout true
       }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
@@ -20,11 +16,9 @@ pipeline {
     stage('build war') {
       parallel {
         stage('adventureCore: build war') {
-          agent {
-            node {
-              label 'master'
-            }
-
+          agent none
+          options {
+              skipDefaultCheckout true
           }
           steps {
             dir(path: 'adventureCore') {
@@ -34,11 +28,9 @@ pipeline {
           }
         }
         stage('adventureUAA: build war') {
-          agent {
-            node {
-              label 'master'
-            }
-
+          agent none
+          options {
+              skipDefaultCheckout true
           }
           steps {
             dir(path: 'adventureUAA') {
@@ -48,11 +40,9 @@ pipeline {
           }
         }
         stage('adventureGateway: build war') {
-          agent {
-            node {
-              label 'master'
-            }
-
+          agent none
+          options {
+              skipDefaultCheckout true
           }
           steps {
             dir(path: 'adventureGateway') {
@@ -66,11 +56,9 @@ pipeline {
     stage('build JenkinsFile') {
       parallel {
         stage('AdventureCore: build JenkinsFile') {
-          agent {
-            node {
-              label 'master'
-            }
-
+          agent none
+          options {
+              skipDefaultCheckout true
           }
           steps {
             dir(path: 'adventureCore') {
@@ -81,11 +69,9 @@ pipeline {
           }
         }
         stage('adventureUAA: build Jenkins') {
-          agent {
-            node {
-              label 'master'
-            }
-
+          agent none
+          options {
+              skipDefaultCheckout true
           }
           steps {
             dir(path: 'adventureUAA') {
@@ -95,11 +81,9 @@ pipeline {
           }
         }
         stage('adventureGateway: build Jenkins') {
-          agent {
-            node {
-              label 'master'
-            }
-
+          agent none
+          options {
+              skipDefaultCheckout true
           }
           steps {
             dir(path: 'adventureGateway') {

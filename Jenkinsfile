@@ -7,6 +7,7 @@ pipeline {
   }
   stages {
     stage('build apps') {
+      agent any
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }
@@ -14,6 +15,7 @@ pipeline {
     stage('build war') {
       parallel {
         stage('adventureCore: build war') {
+          agent any
           steps {
             dir(path: 'adventureCore') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
@@ -22,6 +24,7 @@ pipeline {
           }
         }
         stage('adventureUAA: build war') {
+          agent any
           steps {
             dir(path: 'adventureUAA') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
@@ -30,6 +33,7 @@ pipeline {
           }
         }
         stage('adventureGateway: build war') {
+          agent any
           steps {
             dir(path: 'adventureGateway') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
@@ -42,14 +46,17 @@ pipeline {
     stage('build JenkinsFile') {
       parallel {
         stage('AdventureCore: build JenkinsFile') {
+          agent any
           steps {
             dir(path: 'adventureCore') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 
+            sh 'sh \'scp -r AdventureCore web@web.iamborsch.ru:projects/\''
           }
         }
         stage('adventureUAA: build Jenkins') {
+          agent any
           steps {
             dir(path: 'adventureUAA') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
@@ -58,6 +65,7 @@ pipeline {
           }
         }
         stage('adventureGateway: build Jenkins') {
+          agent any
           steps {
             dir(path: 'adventureGateway') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'

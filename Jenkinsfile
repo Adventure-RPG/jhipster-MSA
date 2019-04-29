@@ -1,13 +1,14 @@
 pipeline {
-  agent none
-  options {
-      skipDefaultCheckout true
+  agent {
+    node {
+      label 'master'
+    }
+
   }
   stages {
     stage('build apps') {
-      agent none
       options {
-          skipDefaultCheckout true
+        skipDefaultCheckout(true)
       }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
@@ -16,9 +17,8 @@ pipeline {
     stage('build war') {
       parallel {
         stage('adventureCore: build war') {
-          agent none
           options {
-              skipDefaultCheckout true
+            skipDefaultCheckout(true)
           }
           steps {
             dir(path: 'adventureCore') {
@@ -28,9 +28,8 @@ pipeline {
           }
         }
         stage('adventureUAA: build war') {
-          agent none
           options {
-              skipDefaultCheckout true
+            skipDefaultCheckout(true)
           }
           steps {
             dir(path: 'adventureUAA') {
@@ -40,9 +39,8 @@ pipeline {
           }
         }
         stage('adventureGateway: build war') {
-          agent none
           options {
-              skipDefaultCheckout true
+            skipDefaultCheckout(true)
           }
           steps {
             dir(path: 'adventureGateway') {
@@ -56,9 +54,8 @@ pipeline {
     stage('build JenkinsFile') {
       parallel {
         stage('AdventureCore: build JenkinsFile') {
-          agent none
           options {
-              skipDefaultCheckout true
+            skipDefaultCheckout(true)
           }
           steps {
             dir(path: 'adventureCore') {
@@ -69,9 +66,8 @@ pipeline {
           }
         }
         stage('adventureUAA: build Jenkins') {
-          agent none
           options {
-              skipDefaultCheckout true
+            skipDefaultCheckout(true)
           }
           steps {
             dir(path: 'adventureUAA') {
@@ -81,9 +77,8 @@ pipeline {
           }
         }
         stage('adventureGateway: build Jenkins') {
-          agent none
           options {
-              skipDefaultCheckout true
+            skipDefaultCheckout(true)
           }
           steps {
             dir(path: 'adventureGateway') {
@@ -94,5 +89,8 @@ pipeline {
         }
       }
     }
+  }
+  options {
+    skipDefaultCheckout(true)
   }
 }

@@ -7,12 +7,6 @@ pipeline {
   }
   stages {
     stage('build apps') {
-      agent {
-        node {
-          label 'master'
-        }
-
-      }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }

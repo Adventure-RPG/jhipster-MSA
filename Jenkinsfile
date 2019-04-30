@@ -134,9 +134,12 @@ pipeline {
             ws(dir: 'workspace/adventureCore') {
               git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
-                sh 'cp -r . ../adventureCore/'
+                sh 'cp -r . ../../adventureCore/'
               }
 
+              sh '''git add .
+git commit -m \'#${BUILD_NUMBER}\'
+git push -f origin master'''
             }
 
           }
@@ -152,9 +155,12 @@ pipeline {
             ws(dir: 'workspace/adventureUAA') {
               git(url: 'https://github.com/Adventure-RPG/adventure-uaa', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
-                sh 'cp -r . ../adventureUAA/'
+                sh 'cp -r . ../../adventureUAA/'
               }
 
+              sh '''git add .
+git commit -m \'#${BUILD_NUMBER}\'
+git push origin master'''
             }
 
           }
@@ -170,9 +176,12 @@ pipeline {
             ws(dir: 'workspace/adventureGateway') {
               git(url: 'https://github.com/Adventure-RPG/adventure-gateway', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa')
               ws(dir: 'workspace/jhipster-MSA_master/adventureGateway') {
-                sh 'cp -r . ../adventureUAA/'
+                sh 'cp -r . ../../adventureGateway/'
               }
 
+              sh '''git add .
+git commit -m \'#${BUILD_NUMBER}\'
+git push origin master'''
             }
 
           }

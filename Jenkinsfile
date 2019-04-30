@@ -79,7 +79,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'jhipster-MSA_master/adventureCore') {
+            ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 
@@ -96,7 +96,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'jhipster-MSA_master/adventureUAA') {
+            ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 
@@ -113,7 +113,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'adventureGateway') {
+            ws(dir: 'workspace/adventureGateway') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 

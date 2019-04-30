@@ -13,8 +13,14 @@ pipeline {
         }
 
       }
+      options {
+        skipDefaultCheckout(true)
+      }
       steps {
-        sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
+        ws(dir: 'jhipster-MSA_master') {
+          sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
+        }
+
       }
     }
     stage('build war') {
@@ -30,7 +36,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'adventureCore') {
+            ws(dir: 'jhipster-MSA_master/adventureCore') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -47,7 +53,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'adventureUAA') {
+            ws(dir: 'jhipster-MSA_master/adventureUAA') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -64,7 +70,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'adventureGateway') {
+            ws(dir: 'jhipster-MSA_master/adventureGateway') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -85,7 +91,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'adventureCore') {
+            ws(dir: 'jhipster-MSA_master/adventureCore') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 
@@ -102,7 +108,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'adventureUAA') {
+            ws(dir: 'jhipster-MSA_master/adventureUAA') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 
@@ -119,7 +125,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'adventureGateway') {
+            ws(dir: 'adventureGateway') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
 

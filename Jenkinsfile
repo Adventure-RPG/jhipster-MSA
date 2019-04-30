@@ -18,113 +18,28 @@ pipeline {
       }
     }
     stage('build war') {
-      parallel {
-        stage('adventureCore: build war') {
-          agent {
-            node {
-              label 'master'
-            }
-
-          }
-          options {
-            skipDefaultCheckout(true)
-          }
-          steps {
-            dir(path: 'adventureCore') {
-              sh './gradlew -Pprod bootWar jibDockerBuild'
-            }
-
-          }
+      agent {
+        node {
+          label 'master'
         }
-        stage('adventureUAA: build war') {
-          agent {
-            node {
-              label 'master'
-            }
 
-          }
-          options {
-            skipDefaultCheckout(true)
-          }
-          steps {
-            dir(path: 'adventureUAA') {
-              sh './gradlew -Pprod bootWar jibDockerBuild'
-            }
-
-          }
-        }
-        stage('adventureGateway: build war') {
-          agent {
-            node {
-              label 'master'
-            }
-
-          }
-          options {
-            skipDefaultCheckout(true)
-          }
-          steps {
-            dir(path: 'adventureGateway') {
-              sh './gradlew -Pprod bootWar jibDockerBuild'
-            }
-
-          }
-        }
       }
-    }
-    stage('build JenkinsFile') {
-      parallel {
-        stage('AdventureCore: build JenkinsFile') {
-          agent {
-            node {
-              label 'master'
-            }
-
-          }
-          options {
-            skipDefaultCheckout(true)
-          }
-          steps {
-            dir(path: 'adventureCore') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-            }
-
-          }
+      options {
+        skipDefaultCheckout(true)
+      }
+      steps {
+        dir(path: 'adventureCore') {
+          sh './gradlew -Pprod bootWar jibDockerBuild'
         }
-        stage('adventureUAA: build Jenkins') {
-          agent {
-            node {
-              label 'master'
-            }
 
-          }
-          options {
-            skipDefaultCheckout(true)
-          }
-          steps {
-            dir(path: 'adventureUAA') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-            }
-
-          }
+        dir(path: 'adventureUAA') {
+          sh './gradlew -Pprod bootWar jibDockerBuild'
         }
-        stage('adventureGateway: build Jenkins') {
-          agent {
-            node {
-              label 'master'
-            }
 
-          }
-          options {
-            skipDefaultCheckout(true)
-          }
-          steps {
-            dir(path: 'adventureGateway') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-            }
-
-          }
+        dir(path: 'adventureGateway') {
+          sh './gradlew -Pprod bootWar jibDockerBuild'
         }
+
       }
     }
   }

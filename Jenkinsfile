@@ -17,13 +17,7 @@ pipeline {
         skipDefaultCheckout(true)
       }
       steps {
-        ws(dir: 'jhipster-MSA_master') {
-          dir(path: 'jhipster-MSA_master') {
-            sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
-          }
-
-        }
-
+        sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }
     }
     stage('build war') {

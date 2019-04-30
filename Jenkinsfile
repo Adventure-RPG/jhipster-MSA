@@ -24,7 +24,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'jhipster-MSA_master/adventureCore') {
+            ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -41,7 +41,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'jhipster-MSA_master/adventureUAA') {
+            ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -58,7 +58,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'jhipster-MSA_master/adventureGateway') {
+            ws(dir: 'workspace/jhipster-MSA_master/adventureGateway') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 

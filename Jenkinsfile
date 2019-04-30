@@ -137,7 +137,7 @@ pipeline {
                 sh 'cp -r . ../../adventureCore/'
               }
 
-              sshagent(credentials: ['adventure_main_rsa']) {
+              withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
                 sh '''git add .
 git commit -m \'#${BUILD_NUMBER}\'
 git push origin master'''
@@ -161,7 +161,7 @@ git push origin master'''
                 sh 'cp -r . ../../adventureUAA/'
               }
 
-              sshagent(credentials: ['adventure_main_rsa']) {
+              withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
                 sh '''git add .
 git commit -m \'#${BUILD_NUMBER}\'
 git push origin master'''
@@ -185,7 +185,7 @@ git push origin master'''
                 sh 'cp -r . ../../adventureGateway/'
               }
 
-              sshagent(credentials: ['adventure_main_rsa']) {
+              withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
                 sh '''git add .
 git commit -m \'#${BUILD_NUMBER}\'
 git push origin master'''

@@ -121,5 +121,39 @@ pipeline {
         }
       }
     }
+    stage('push to git') {
+      parallel {
+        stage('AdventureCore: push to git') {
+          agent {
+            node {
+              label 'master'
+            }
+
+          }
+          steps {
+            ws(dir: 'workspace/adventureCore') {
+              git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
+            }
+
+          }
+        }
+        stage('adventureUAA: push to git') {
+          steps {
+            ws(dir: 'workspace/adventureUAA') {
+              git(url: 'https://github.com/Adventure-RPG/adventure-uaa', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
+            }
+
+          }
+        }
+        stage('adventureGateway: push to git') {
+          steps {
+            ws(dir: 'workspace/adventureGateway') {
+              git(url: 'https://github.com/Adventure-RPG/adventure-gateway', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa')
+            }
+
+          }
+        }
+      }
+    }
   }
 }

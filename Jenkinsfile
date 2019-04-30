@@ -135,7 +135,7 @@ pipeline {
           }
           steps {
             ws(dir: 'workspace/adventureCore') {
-              git(url: 'shaper2111@github.com:Adventure-RPG/adventure-core.git', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
+              git(url: 'ssh://shaper2111@github.com:Adventure-RPG/adventure-core.git', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
                 sh 'cp -r . ../../adventureCore/'
               }
@@ -162,7 +162,7 @@ git push origin master'''
           }
           steps {
             ws(dir: 'workspace/adventureUAA') {
-              git(url: 'shaper2111@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
+              git(url: 'ssh://shaper2111@github.com:Adventure-RPG/adventure-uaa.git', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
                 sh 'cp -r . ../../adventureUAA/'
               }
@@ -189,7 +189,7 @@ git push origin master'''
           }
           steps {
             ws(dir: 'workspace/adventureGateway') {
-              git(url: 'shaper2111@github.com:Adventure-RPG/adventure-gateway.git', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
+              git(url: 'ssh://shaper2111@github.com:Adventure-RPG/adventure-gateway.git', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureGateway') {
                 sh 'cp -r . ../../adventureGateway/'
               }

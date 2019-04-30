@@ -13,9 +13,6 @@ pipeline {
         }
 
       }
-      options {
-        skipDefaultCheckout(true)
-      }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }

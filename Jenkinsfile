@@ -134,7 +134,7 @@ pipeline {
             ws(dir: 'workspace/adventureCore') {
               git(url: 'https://github.com/Adventure-RPG/adventure-core', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
-                sh 'cp -r . ../workspace/adventureCore/'
+                sh 'cp -r . ../adventureCore/'
               }
 
             }
@@ -152,7 +152,7 @@ pipeline {
             ws(dir: 'workspace/adventureUAA') {
               git(url: 'https://github.com/Adventure-RPG/adventure-uaa', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
               ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
-                sh 'cp -r . ../workspace/adventureUAA/'
+                sh 'cp -r . ../adventureUAA/'
               }
 
             }
@@ -170,7 +170,7 @@ pipeline {
             ws(dir: 'workspace/adventureGateway') {
               git(url: 'https://github.com/Adventure-RPG/adventure-gateway', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa')
               ws(dir: 'workspace/jhipster-MSA_master/adventureGateway') {
-                sh 'cp -r . ../workspace/adventureUAA/'
+                sh 'cp -r . ../adventureUAA/'
               }
 
             }

@@ -18,7 +18,10 @@ pipeline {
       }
       steps {
         ws(dir: 'jhipster-MSA_master') {
-          sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
+          dir(path: 'jhipster-MSA_master') {
+            sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
+          }
+
         }
 
       }

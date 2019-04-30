@@ -24,6 +24,7 @@ pipeline {
             node {
               label 'master'
             }
+
           }
           options {
             skipDefaultCheckout(true)
@@ -40,6 +41,7 @@ pipeline {
             node {
               label 'master'
             }
+
           }
           options {
             skipDefaultCheckout(true)
@@ -56,6 +58,7 @@ pipeline {
             node {
               label 'master'
             }
+
           }
           options {
             skipDefaultCheckout(true)
@@ -85,6 +88,7 @@ pipeline {
             dir(path: 'adventureCore') {
               sh 'jhipster ci-cd --autoconfigure-jenkins=true'
             }
+
           }
         }
         stage('adventureUAA: build Jenkins') {

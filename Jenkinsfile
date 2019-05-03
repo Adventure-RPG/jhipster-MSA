@@ -141,9 +141,9 @@ pipeline {
 
               withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
                 sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
-git merge master
+git add .
 git commit -m \'#${BUILD_NUMBER}\'
-git push origin master'''
+git push --force origin master'''
               }
 
             }
@@ -168,7 +168,7 @@ git push origin master'''
 
               withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
                 sh 'git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git'
-                sh 'git merge master'
+                sh 'git add .'
                 sh 'git commit -m "#${BUILD_NUMBER}"'
                 sh 'git push origin master'
               }
@@ -196,7 +196,7 @@ git push origin master'''
 
               withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
                 sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-gateway.git
-git merge master
+git add .
 git commit -m \'#${BUILD_NUMBER}\'
 git push origin master'''
               }

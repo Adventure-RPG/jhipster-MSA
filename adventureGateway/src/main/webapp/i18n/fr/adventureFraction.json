@@ -1,0 +1,25 @@
+{
+  "adventureGatewayApp": {
+    "adventureFraction": {
+      "home": {
+        "title": "AdventureFractions",
+        "createLabel": "Créer un nouveau Adventure Fraction",
+        "createOrEditLabel": "Créer ou éditer un Adventure Fraction",
+        "search": "Recherche pour Adventure Fraction"
+      },
+      "created": "Un nouveau Adventure Fraction a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adventure Fraction avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adventure Fraction avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adventure Fraction {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adventure Fraction"
+      },
+      "name": "Name",
+      "desc": "Desc",
+      "image": "Image",
+      "adventureRace": "Adventure Race"
+    }
+  }
+}

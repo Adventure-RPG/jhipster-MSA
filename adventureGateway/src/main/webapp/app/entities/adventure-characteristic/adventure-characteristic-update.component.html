@@ -1,0 +1,185 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-adventure-characteristic-heading" jhiTranslate="adventureGatewayApp.adventureCharacteristic.home.createOrEditLabel">Create or edit a Adventure Characteristic</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!adventureCharacteristic.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.strength" for="field_strength">Strength</label>
+                    <input type="number" class="form-control" name="strength" id="field_strength"
+                           formControlName="strength"/>
+                    <div *ngIf="editForm.get('strength').invalid && (editForm.get('strength').dirty || editForm.get('strength').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('strength').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('strength').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('strength').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('strength')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.agility" for="field_agility">Agility</label>
+                    <input type="number" class="form-control" name="agility" id="field_agility"
+                           formControlName="agility"/>
+                    <div *ngIf="editForm.get('agility').invalid && (editForm.get('agility').dirty || editForm.get('agility').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('agility').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('agility').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('agility').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('agility')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.vitality" for="field_vitality">Vitality</label>
+                    <input type="number" class="form-control" name="vitality" id="field_vitality"
+                           formControlName="vitality"/>
+                    <div *ngIf="editForm.get('vitality').invalid && (editForm.get('vitality').dirty || editForm.get('vitality').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vitality').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vitality').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('vitality').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('vitality')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.luck" for="field_luck">Luck</label>
+                    <input type="number" class="form-control" name="luck" id="field_luck"
+                           formControlName="luck"/>
+                    <div *ngIf="editForm.get('luck').invalid && (editForm.get('luck').dirty || editForm.get('luck').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('luck').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('luck').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('luck').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('luck')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.intelligence" for="field_intelligence">Intelligence</label>
+                    <input type="number" class="form-control" name="intelligence" id="field_intelligence"
+                           formControlName="intelligence"/>
+                    <div *ngIf="editForm.get('intelligence').invalid && (editForm.get('intelligence').dirty || editForm.get('intelligence').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('intelligence').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('intelligence').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('intelligence').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('intelligence')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.wisdom" for="field_wisdom">Wisdom</label>
+                    <input type="number" class="form-control" name="wisdom" id="field_wisdom"
+                           formControlName="wisdom"/>
+                    <div *ngIf="editForm.get('wisdom').invalid && (editForm.get('wisdom').dirty || editForm.get('wisdom').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('wisdom').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('wisdom').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('wisdom').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('wisdom')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="adventureGatewayApp.adventureCharacteristic.charisma" for="field_charisma">Charisma</label>
+                    <input type="number" class="form-control" name="charisma" id="field_charisma"
+                           formControlName="charisma"/>
+                    <div *ngIf="editForm.get('charisma').invalid && (editForm.get('charisma').dirty || editForm.get('charisma').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('charisma').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('charisma').errors.min" jhiTranslate="entity.validation.min" [translateValues]="{ min: 1 }">
+                            This field should be at least 1.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('charisma').errors.max" jhiTranslate="entity.validation.max" [translateValues]="{ max: 50 }">
+                            This field cannot be more than 50.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('charisma')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

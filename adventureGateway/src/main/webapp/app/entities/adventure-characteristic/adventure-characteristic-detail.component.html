@@ -1,0 +1,51 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adventureCharacteristic">
+            <h2><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.detail.title">Adventure Characteristic</span> {{adventureCharacteristic.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.strength">Strength</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.strength}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.agility">Agility</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.agility}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.vitality">Vitality</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.vitality}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.luck">Luck</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.luck}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.intelligence">Intelligence</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.intelligence}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.wisdom">Wisdom</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.wisdom}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureCharacteristic.charisma">Charisma</span></dt>
+                <dd>
+                    <span>{{adventureCharacteristic.charisma}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adventure-characteristic', adventureCharacteristic.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "adventureGatewayApp": {
+    "adventureModelOptions": {
+      "home": {
+        "title": "AdventureModelOptions",
+        "createLabel": "Créer un nouveau Adventure Model Options",
+        "createOrEditLabel": "Créer ou éditer un Adventure Model Options",
+        "search": "Recherche pour Adventure Model Options"
+      },
+      "created": "Un nouveau Adventure Model Options a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adventure Model Options avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adventure Model Options avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adventure Model Options {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adventure Model Options"
+      },
+      "color": "Color"
+    }
+  }
+}

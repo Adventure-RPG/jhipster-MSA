@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152852_added_entity_AdventureAccountCharacter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152853_added_entity_AdventureRace.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152854_added_entity_AdventureFraction.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152855_added_entity_AdventureRaceOptions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152856_added_entity_AdventureModel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152857_added_entity_AdventureSkill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152858_added_entity_AdventureScript.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152859_added_entity_AdventureModelOptions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152900_added_entity_AdventureCategoryType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152901_added_entity_AdventureCharacteristic.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152902_added_entity_AdventureInventoryChar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152903_added_entity_AdventureItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152904_added_entity_AdventureAttributes.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190503152852_added_entity_constraints_AdventureAccountCharacter.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152853_added_entity_constraints_AdventureRace.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152855_added_entity_constraints_AdventureRaceOptions.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152856_added_entity_constraints_AdventureModel.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152857_added_entity_constraints_AdventureSkill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152902_added_entity_constraints_AdventureInventoryChar.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190503152903_added_entity_constraints_AdventureItem.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

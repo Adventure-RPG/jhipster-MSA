@@ -1,0 +1,26 @@
+{
+  "adventureGatewayApp": {
+    "adventureItem": {
+      "home": {
+        "title": "Adventure Items",
+        "createLabel": "Create a new Adventure Item",
+        "createOrEditLabel": "Create or edit a Adventure Item",
+        "search": "Search for Adventure Item"
+      },
+      "created": "A new Adventure Item is created with identifier {{ param }}",
+      "updated": "A Adventure Item is updated with identifier {{ param }}",
+      "deleted": "A Adventure Item is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Adventure Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Adventure Item"
+      },
+      "isEquipment": "Is Equipment",
+      "equipmentSlot": "Equipment Slot",
+      "price": "Price",
+      "weight": "Weight",
+      "adventureAttributes": "Adventure Attributes"
+    }
+  }
+}

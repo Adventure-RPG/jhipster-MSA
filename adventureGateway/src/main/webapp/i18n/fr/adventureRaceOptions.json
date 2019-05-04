@@ -1,0 +1,25 @@
+{
+  "adventureGatewayApp": {
+    "adventureRaceOptions": {
+      "home": {
+        "title": "AdventureRaceOptions",
+        "createLabel": "Créer un nouveau Adventure Race Options",
+        "createOrEditLabel": "Créer ou éditer un Adventure Race Options",
+        "search": "Recherche pour Adventure Race Options"
+      },
+      "created": "Un nouveau Adventure Race Options a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adventure Race Options avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adventure Race Options avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adventure Race Options {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adventure Race Options"
+      },
+      "height": "Height",
+      "weight": "Weight",
+      "adventureModelOptions": "Adventure Model Options",
+      "adventureModel": "Adventure Model"
+    }
+  }
+}

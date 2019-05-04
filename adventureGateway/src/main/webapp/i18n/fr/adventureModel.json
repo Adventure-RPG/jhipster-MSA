@@ -1,0 +1,25 @@
+{
+  "adventureGatewayApp": {
+    "adventureModel": {
+      "home": {
+        "title": "AdventureModels",
+        "createLabel": "Créer un nouveau Adventure Model",
+        "createOrEditLabel": "Créer ou éditer un Adventure Model",
+        "search": "Recherche pour Adventure Model"
+      },
+      "created": "Un nouveau Adventure Model a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adventure Model avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adventure Model avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adventure Model {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adventure Model"
+      },
+      "name": "Name",
+      "file": "File",
+      "adventureCategoryType": "Adventure Category Type",
+      "adventureRaceOptions": "Adventure Race Options"
+    }
+  }
+}

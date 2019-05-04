@@ -1,0 +1,27 @@
+{
+  "adventureGatewayApp": {
+    "adventureAccountCharacter": {
+      "home": {
+        "title": "AdventureAccountCharacters",
+        "createLabel": "Créer un nouveau Adventure Account Character",
+        "createOrEditLabel": "Créer ou éditer un Adventure Account Character",
+        "search": "Recherche pour Adventure Account Character"
+      },
+      "created": "Un nouveau Adventure Account Character a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Adventure Account Character avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Adventure Account Character avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Adventure Account Character {{ id }} ?"
+      },
+      "detail": {
+        "title": "Adventure Account Character"
+      },
+      "nickname": "Nickname",
+      "gender": "Gender",
+      "adventureInventoryChar": "Adventure Inventory Char",
+      "adventureCharacteristic": "Adventure Characteristic",
+      "adventureRace": "Adventure Race",
+      "adventureSkill": "Adventure Skill"
+    }
+  }
+}

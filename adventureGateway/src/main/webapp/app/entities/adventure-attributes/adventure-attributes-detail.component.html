@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adventureAttributes">
+            <h2><span jhiTranslate="adventureGatewayApp.adventureAttributes.detail.title">Adventure Attributes</span> {{adventureAttributes.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.defence">Defence</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.defence}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.defenceArmorType">Defence Armor Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'adventureGatewayApp.AdventureDefenceArmorType.' + adventureAttributes.defenceArmorType}}">{{adventureAttributes.defenceArmorType}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.fireResistance">Fire Resistance</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.fireResistance}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.earthResistance">Earth Resistance</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.earthResistance}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.waterResistance">Water Resistance</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.waterResistance}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.windResistance">Wind Resistance</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.windResistance}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.activeWeaponAttackDamage">Active Weapon Attack Damage</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'adventureGatewayApp.AdventureActiveWeaponAttackDamage.' + adventureAttributes.activeWeaponAttackDamage}}">{{adventureAttributes.activeWeaponAttackDamage}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.activeWeaponAttackHit">Active Weapon Attack Hit</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.activeWeaponAttackHit}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.activeWeaponAttackType">Active Weapon Attack Type</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.activeWeaponAttackType}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureAttributes.size">Size</span></dt>
+                <dd>
+                    <span>{{adventureAttributes.size}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adventure-attributes', adventureAttributes.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="adventureFraction">
+            <h2><span jhiTranslate="adventureGatewayApp.adventureFraction.detail.title">Adventure Fraction</span> {{adventureFraction.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="adventureGatewayApp.adventureFraction.name">Name</span></dt>
+                <dd>
+                    <span>{{adventureFraction.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureFraction.desc">Desc</span></dt>
+                <dd>
+                    <span>{{adventureFraction.desc}}</span>
+                </dd>
+                <dt><span jhiTranslate="adventureGatewayApp.adventureFraction.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="adventureFraction.image">
+                        <a (click)="openFile(adventureFraction.imageContentType, adventureFraction.image)">
+                            <img [src]="'data:' + adventureFraction.imageContentType + ';base64,' + adventureFraction.image" style="max-width: 100%;" alt="adventureFraction image"/>
+                        </a>
+                        {{adventureFraction.imageContentType}}, {{byteSize(adventureFraction.image)}}
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/adventure-fraction', adventureFraction.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

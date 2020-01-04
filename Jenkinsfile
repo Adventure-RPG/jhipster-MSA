@@ -7,12 +7,6 @@ pipeline {
   }
   stages {
     stage('build apps') {
-      agent {
-        node {
-          label 'adventureNode'
-        }
-
-      }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }
@@ -20,12 +14,6 @@ pipeline {
     stage('build war') {
       parallel {
         stage('adventureCore: build war') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -37,12 +25,6 @@ pipeline {
           }
         }
         stage('adventureUAA: build war') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -54,12 +36,6 @@ pipeline {
           }
         }
         stage('adventureGateway: build war') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }

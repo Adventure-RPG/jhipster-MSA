@@ -83,18 +83,11 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'workspace/adventureCore') {
-              ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
-                sh 'cp -r . ../../adventureCore/'
-              }
-
-              withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
-                sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
+            withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
+              sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-core.git
 git add .
 git commit -m \'#${BUILD_NUMBER}\'
 git push --force origin master'''
-              }
-
             }
 
           }
@@ -104,17 +97,11 @@ git push --force origin master'''
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'workspace/adventureUAA') {
-              ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
-                sh 'cp -r . ../../adventureUAA/'
-              }
-
-              withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
-                sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
+            withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
+              sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
 git add .
-git commit -m \'#${BUILD_NUMBER}\''''
-              }
-
+git commit -m \'#${BUILD_NUMBER}\'
+git push --force origin master'''
             }
 
           }
@@ -124,19 +111,11 @@ git commit -m \'#${BUILD_NUMBER}\''''
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'workspace/adventureGateway') {
-              git(url: 'https://github.com/Adventure-RPG/adventure-gateway', branch: 'master', changelog: true, credentialsId: 'adventure_main_rsa', poll: true)
-              ws(dir: 'workspace/jhipster-MSA_master/adventureGateway') {
-                sh 'cp -r . ../../adventureGateway/'
-              }
-
-              withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
-                sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-gateway.git
+            withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
+              sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-gateway.git
 git add .
 git commit -m \'#${BUILD_NUMBER}\'
-git push origin master'''
-              }
-
+git push --force origin master'''
             }
 
           }

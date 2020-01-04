@@ -11,9 +11,10 @@ pipeline {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }
     }
-    stage('build war') {
+
+    stage('build jar') {
       parallel {
-        stage('adventureCore: build war') {
+        stage('adventureCore: build jar') {
           options {
             skipDefaultCheckout(true)
           }
@@ -24,7 +25,8 @@ pipeline {
 
           }
         }
-        stage('adventureUAA: build war') {
+
+        stage('adventureUAA: build jar') {
           options {
             skipDefaultCheckout(true)
           }
@@ -35,7 +37,8 @@ pipeline {
 
           }
         }
-        stage('adventureGateway: build war') {
+
+        stage('adventureGateway: build jar') {
           options {
             skipDefaultCheckout(true)
           }
@@ -46,8 +49,10 @@ pipeline {
 
           }
         }
+
       }
     }
+
     stage('build JenkinsFile') {
       parallel {
         stage('AdventureCore: build JenkinsFile') {
@@ -58,7 +63,8 @@ pipeline {
             sh 'jhipster ci-cd --autoconfigure-jenkins=true'
           }
         }
-        stage('adventureUAA: build Jenkins') {
+
+        stage('adventureUAA: build JenkinsFile') {
           options {
             skipDefaultCheckout(true)
           }
@@ -66,7 +72,8 @@ pipeline {
             sh 'jhipster ci-cd --autoconfigure-jenkins=true'
           }
         }
-        stage('adventureGateway: build Jenkins') {
+
+        stage('adventureGateway: build JenkinsFile') {
           options {
             skipDefaultCheckout(true)
           }
@@ -74,8 +81,10 @@ pipeline {
             sh 'jhipster ci-cd --autoconfigure-jenkins=true'
           }
         }
+
       }
     }
+
     stage('push to git') {
       parallel {
         stage('AdventureCore: push to git') {
@@ -92,6 +101,7 @@ git push --force origin master'''
 
           }
         }
+
         stage('adventureUAA: push to git') {
           options {
             skipDefaultCheckout(true)
@@ -106,6 +116,7 @@ git push --force origin master'''
 
           }
         }
+
         stage('adventureGateway: push to git') {
           options {
             skipDefaultCheckout(true)
@@ -120,7 +131,9 @@ git push --force origin master'''
 
           }
         }
+
       }
     }
+
   }
 }

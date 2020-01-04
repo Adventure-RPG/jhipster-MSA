@@ -30,7 +30,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'workspace/jhipster-MSA_master/adventureCore') {
+            dir(path: 'adventureCore') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -47,7 +47,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'workspace/jhipster-MSA_master/adventureUAA') {
+            dir(path: 'adventureUAA') {
               sh './gradlew -Pprod bootWar jibDockerBuild'
             }
 
@@ -64,8 +64,10 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            dir(path: 'workspace/jhipster-MSA_master/adventureGateway')
-            sh './gradlew -Pprod bootWar jibDockerBuild'
+            dir(path: 'adventureGateway') {
+              sh './gradlew -Pprod bootWar jibDockerBuild'
+            }
+
           }
         }
       }
@@ -83,10 +85,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'workspace/jhipster-MSA_master/adventureCore') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-            }
-
+            sh 'jhipster ci-cd --autoconfigure-jenkins=true'
           }
         }
         stage('adventureUAA: build Jenkins') {
@@ -100,10 +99,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'workspace/jhipster-MSA_master/adventureUAA') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-            }
-
+            sh 'jhipster ci-cd --autoconfigure-jenkins=true'
           }
         }
         stage('adventureGateway: build Jenkins') {
@@ -117,10 +113,7 @@ pipeline {
             skipDefaultCheckout(true)
           }
           steps {
-            ws(dir: 'workspace/adventureGateway') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
-            }
-
+            sh 'jhipster ci-cd --autoconfigure-jenkins=true'
           }
         }
       }

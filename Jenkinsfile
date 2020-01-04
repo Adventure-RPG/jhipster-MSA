@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-      label 'adventureNode'
+      label 'master'
     }
 
   }
@@ -51,12 +51,6 @@ pipeline {
     stage('build JenkinsFile') {
       parallel {
         stage('AdventureCore: build JenkinsFile') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -65,12 +59,6 @@ pipeline {
           }
         }
         stage('adventureUAA: build Jenkins') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -79,12 +67,6 @@ pipeline {
           }
         }
         stage('adventureGateway: build Jenkins') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -97,12 +79,6 @@ pipeline {
     stage('push to git') {
       parallel {
         stage('AdventureCore: push to git') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -124,12 +100,6 @@ git push --force origin master'''
           }
         }
         stage('adventureUAA: push to git') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }
@@ -150,12 +120,6 @@ git commit -m \'#${BUILD_NUMBER}\''''
           }
         }
         stage('adventureGateway: push to git') {
-          agent {
-            node {
-              label 'adventureNode'
-            }
-
-          }
           options {
             skipDefaultCheckout(true)
           }

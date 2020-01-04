@@ -1,12 +1,18 @@
 pipeline {
   agent {
     node {
-      label 'master'
+      label 'adventureNode'
     }
 
   }
   stages {
     stage('build apps') {
+      agent {
+        node {
+          label 'adventureNode'
+        }
+
+      }
       steps {
         sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
       }
@@ -16,7 +22,7 @@ pipeline {
         stage('adventureCore: build war') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -33,7 +39,7 @@ pipeline {
         stage('adventureUAA: build war') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -50,7 +56,7 @@ pipeline {
         stage('adventureGateway: build war') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -71,7 +77,7 @@ pipeline {
         stage('AdventureCore: build JenkinsFile') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -88,7 +94,7 @@ pipeline {
         stage('adventureUAA: build Jenkins') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -105,7 +111,7 @@ pipeline {
         stage('adventureGateway: build Jenkins') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -126,7 +132,7 @@ pipeline {
         stage('AdventureCore: push to git') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -153,7 +159,7 @@ git push --force origin master'''
         stage('adventureUAA: push to git') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }
@@ -167,10 +173,9 @@ git push --force origin master'''
               }
 
               withCredentials(bindings: [sshUserPrivateKey(credentialsId: 'adventure_main_rsa', keyFileVariable: 'SSH_KEY')]) {
-                sh 'git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git'
-                sh 'git add .'
-                sh 'git commit -m "#${BUILD_NUMBER}"'
-                sh 'git push origin master'
+                sh '''git remote set-url origin git@github.com:Adventure-RPG/adventure-uaa.git
+git add .
+git commit -m \'#${BUILD_NUMBER}\''''
               }
 
             }
@@ -180,7 +185,7 @@ git push --force origin master'''
         stage('adventureGateway: push to git') {
           agent {
             node {
-              label 'master'
+              label 'adventureNode'
             }
 
           }

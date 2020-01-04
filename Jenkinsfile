@@ -19,7 +19,7 @@ pipeline {
           }
           steps {
             dir(path: 'adventureCore') {
-              sh './gradlew -Pprod bootWar jibDockerBuild'
+              sh './gradlew -Pprod bootJar jibDockerBuild'
             }
 
           }
@@ -30,7 +30,7 @@ pipeline {
           }
           steps {
             dir(path: 'adventureUAA') {
-              sh './gradlew -Pprod bootWar jibDockerBuild'
+              sh './gradlew -Pprod bootJar jibDockerBuild'
             }
 
           }
@@ -41,7 +41,7 @@ pipeline {
           }
           steps {
             dir(path: 'adventureGateway') {
-              sh './gradlew -Pprod bootWar jibDockerBuild'
+              sh './gradlew -Pprod bootJar jibDockerBuild'
             }
 
           }

@@ -159,5 +159,17 @@ git push --force origin master'''
       }
     }
 
+    stage('allocate') {
+      agent {
+        node {
+          label 'adventureNode'
+        }
+
+      }
+      steps {
+        ws(dir: 'jhipster-MSA_master')
+      }
+    }
+
   }
 }

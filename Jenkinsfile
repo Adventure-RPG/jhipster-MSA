@@ -63,7 +63,7 @@ pipeline {
           steps {
             dir(path: 'adventureCore') {
               sh 'cp ../cicd.exp . && ./cicd.exp'
-              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventurecore:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5555\\/adventurecore:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
             }
 
           }
@@ -76,7 +76,7 @@ pipeline {
           steps {
             dir(path: 'adventureUAA') {
               sh 'cp ../cicd.exp . && ./cicd.exp'
-              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventureuaa:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5555\\/adventureuaa:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
             }
 
           }
@@ -89,7 +89,7 @@ pipeline {
           steps {
             dir(path: 'adventureGateway') {
               sh 'cp ../cicd.exp . && ./cicd.exp'
-              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventuregateway:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5555\\/adventuregateway:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
             }
 
           }
@@ -169,7 +169,8 @@ git push --force origin master'''
         dir(path: 'docker-compose') {
           sh './docker.exp'
           sh '''docker-compose config > docker-compose.tmp.yml
-head -n -4 docker-compose.tmp.yml > docker-compose.stack.yml
+sed \'s/image: adventure/image: borschregistry:5555\/adventure/g\' docker-compose.tmp.yml > docker-compose.yml
+head -n -4 docker-compose.yml > docker-compose.stack.yml
 echo "    configs:
       - source: jhipster_registry_config
         target: /central-config/application.yml

@@ -25,4 +25,7 @@ send -- "\033\[B"
 send -- "\033\[B"
 send -- " "
 send -- "\r"
+#force rewrite Jenkinsfile
+send -- "y"
+send -- "\r"
 expect eof

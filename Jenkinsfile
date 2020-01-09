@@ -63,7 +63,7 @@ pipeline {
           steps {
             dir(path: 'adventureCore') {
               sh 'cp ../cicd.exp . && ./cicd.exp'
-              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventurecore:latest/g\' Jenkinsfile > Jenkinsfile'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventurecore:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
             }
 
           }
@@ -76,7 +76,7 @@ pipeline {
           steps {
             dir(path: 'adventureUAA') {
               sh 'cp ../cicd.exp . && ./cicd.exp'
-              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventureuaa:latest/g\' Jenkinsfile > Jenkinsfile'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventureuaa:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
             }
 
           }
@@ -89,7 +89,7 @@ pipeline {
           steps {
             dir(path: 'adventureGateway') {
               sh 'cp ../cicd.exp . && ./cicd.exp'
-              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventuregateway:latest/g\' Jenkinsfile > Jenkinsfile'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventuregateway:latest/g\' Jenkinsfile > Jenkinsfile.tmp && mv Jenkinsfile.tmp Jenkinsfile'
             }
 
           }

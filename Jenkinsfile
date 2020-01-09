@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('build apps') {
       steps {
-        sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight'
+        sh 'jhipster import-jdl apps.jh --from-cli=false --skip-insight --no-insight --with-entities'
+        sh 'chmod +x cicd.exp docker.exp'
       }
     }
 
@@ -61,7 +62,8 @@ pipeline {
           }
           steps {
             dir(path: 'adventureCore') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+              sh 'cp ../cicd.exp . && ./cicd.exp'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventurecore:latest/g\' Jenkinsfile > Jenkinsfile'
             }
 
           }
@@ -73,7 +75,8 @@ pipeline {
           }
           steps {
             dir(path: 'adventureUAA') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+              sh 'cp ../cicd.exp . && ./cicd.exp'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventureuaa:latest/g\' Jenkinsfile > Jenkinsfile'
             }
 
           }
@@ -85,7 +88,8 @@ pipeline {
           }
           steps {
             dir(path: 'adventureGateway') {
-              sh 'jhipster ci-cd --autoconfigure-jenkins=true'
+              sh 'cp ../cicd.exp . && ./cicd.exp'
+              sh 'sed -e \'s/-u jhipster //g\' -e \'s/gradlew jib/gradlew jib -Djib.allowInsecureRegistries=true --image=borschregistry:5000\\/adventuregateway:latest/g\' Jenkinsfile > Jenkinsfile'
             }
 
           }
@@ -154,6 +158,30 @@ git push --force origin master'''
             }
 
           }
+        }
+
+      }
+    }
+
+    stage('build stack') {
+      steps {
+        sh 'mkdir docker-compose && cp docker.exp docker-compose/'
+        dir(path: 'docker-compose') {
+          sh './docker.exp'
+          sh '''docker-compose config > docker-compose.tmp.yml
+head -n -4 docker-compose.tmp.yml > docker-compose.stack.yml
+echo "    configs:
+      - source: jhipster_registry_config
+        target: /central-config/application.yml
+        uid: \'1000\'
+        gid: \'1000\'
+        mode: 0440
+configs:
+    jhipster_registry_config:
+        file: ./central-server-config/application.yml
+version: \'3.7\'" >> docker-compose.stack.yml'''
+          sh 'docker stack rm Adventure'
+          sh 'docker stack deploy --compose-file docker-compose.stack.yml Adventure'
         }
 
       }
